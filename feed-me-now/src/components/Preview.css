@@ -1,0 +1,18 @@
+.Preview__btn--green {
+    background-color: #1EB118;
+}
+
+.Preview__btn--red {
+    background-color: #F60A09;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .Preview__btns {
+        display: flex;
+        justify-content: space-around;
+    }
+    .Preview__btns input[type="button"] {
+        padding: 6px;
+        color: #FFF;
+    }
+}
