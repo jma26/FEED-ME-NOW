@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Preview.css';
+import { Link } from 'react-router-dom';
 
 const logoPath = process.env.PUBLIC_URL + '/assets/imgs/logo.png';
 
@@ -11,8 +12,12 @@ class Preview extends Component {
                 <h2 className="Preview__content"> Click accept to share your location or decline to manually input it. </h2>
                 <img src={`${logoPath}`} alt="Brand logo" />
                 <div className="Preview__btns">
-                    <input className="Preview__btn--green" type="button" value="Accept"/>
-                    <input className="Preview__btn--red" type="button" value="Decline"/>
+                    <button className="Preview__btn--red preview_btns">
+                        <Link to="/home" style={{textDecoration: 'none', color: '#FFF'}}> Accept </Link>
+                    </button>
+                    <button className="Preview__btn--green preview_btns">
+                        <Link to="/home" style={{textDecoration: 'none', color: '#FFF'}}> Decline </Link>
+                    </button>
                 </div>
             </div>
         )
