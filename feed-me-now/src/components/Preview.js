@@ -9,6 +9,7 @@ class Preview extends Component {
         return (
             <div className="Preview">
                 <h1 className="Preview__intro"> FEED ME NOW is an awesome web app for those who can't decide where to eat. </h1> 
+                <h1 className="Preview__intro--mobile-content"> FEED ME NOW </h1>
                 <h2 className="Preview__content"> Click accept to share your location or decline to manually input it. </h2>
                 <img src={`${logoPath}`} alt="Brand logo" />
                 <div className="Preview__btns">
