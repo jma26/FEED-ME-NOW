@@ -1,6 +1,15 @@
 const express = require('express');
-const app = express();
 const axios = require('axios');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const app = express();
+
+// Handle cors
+app.use(cors());
+// Handle requested data with body-parser, turn on object nesting
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 const yelpKey = require('./yelpConfig.js')['yelpAPIKey'];
 
@@ -10,12 +19,18 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${yelpKey}`;
 
 const port = 8000;
 
-app.get('/getrestaurant', (req, res, next) => {
-    axios.get('businesses/search', {
-        params: {
+app.post('/getrestaurant', (req, res, next) => {
+    let yelpParams;
+    // Check if gelocation is shared
+    if (req.body.hasGeolocation) {
+        yelpParams = {
             term: 'restaurants',
-            location: 'Santa Rosa, CA'
+            latitude: req.body.lat,
+            longitude: req.body.lng
         }
+    }
+    axios.get('businesses/search', {
+        params: {...yelpParams}
     })
     .then((response) => {
         console.log(response.data);
