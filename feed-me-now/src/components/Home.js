@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import Header from './Header';
 
@@ -14,6 +15,12 @@ class Home extends Component {
         const lng = position.coords.longitude;
         const lat = position.coords.latitude;
         console.log(`User's geolocation is ${lng}, ${lat}`);
+        // http request to server
+        axios.post('http://localhost:8000/getrestaurant', {
+            lng: lng,
+            lat: lat,
+            hasGeolocation: true
+        });
     }
 
     getUserLocation() {
