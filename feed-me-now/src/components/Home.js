@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Header from './Header';
+import Map from './Map';
 
 class Home extends Component {
     constructor(props) {
@@ -41,6 +42,12 @@ class Home extends Component {
         return (
             <div className="Home">
                 <Header />
+                <Map
+                    center={[37.7749, -122.4194]}
+                    baseLayer={'light'}
+                    zoom={14}
+                    apiKey={process.env.REACT_APP_MAPQUEST_API_KEY}
+                />
             </div>
         )
     }
