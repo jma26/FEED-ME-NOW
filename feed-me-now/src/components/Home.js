@@ -43,6 +43,8 @@ class Home extends Component {
             <div className="Home">
                 <Header />
                 <Map
+                    height={'100vh'}
+                    width={'100%'}
                     center={[37.7749, -122.4194]}
                     baseLayer={'light'}
                     zoom={14}
