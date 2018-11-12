@@ -20,9 +20,19 @@ class Home extends Component {
             lat: lat,
             hasGeolocation: true
         })
-        .then((data) => {
-            console.log(data);
-        });
+        .then((response) => {
+            this.setState({
+                restaurant: {
+                    name: response.data.name,
+                    address: response.data.location.display_address,
+                    phone: response.data.restaurant_phone,
+                    rating: response.data.rating,
+                    coords: response.data.coordinates,
+                    url: response.data.url
+                },
+            })
+            console.log(response);
+        }); 
     }
 
     displayLocationInfo(position) {
@@ -61,6 +71,7 @@ class Home extends Component {
             <div className="Home">
                 <Header />
                 <Map
+                    restaurant={this.state.restaurant}
                     userLocation={this.state.userLocation}
                     height={'100vh'}
                     width={'100%'}
