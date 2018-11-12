@@ -13,6 +13,18 @@ class Home extends Component {
         this.displayLocationInfo = this.displayLocationInfo.bind(this);
     }
 
+    getRestaurant(lat, lng) {
+        // http request to server
+        axios.post('http://localhost:8000/getrestaurant', {
+            lng: lng,
+            lat: lat,
+            hasGeolocation: true
+        })
+        .then((data) => {
+            console.log(data);
+        });
+    }
+
     displayLocationInfo(position) {
         const lng = position.coords.longitude;
         const lat = position.coords.latitude;
@@ -20,12 +32,8 @@ class Home extends Component {
             userLocation: `${lat}, ${lng}`
         })
         console.log(`User's geolocation is ${lng}, ${lat}`);
-        // http request to server
-        axios.post('http://localhost:8000/getrestaurant', {
-            lng: lng,
-            lat: lat,
-            hasGeolocation: true
-        });
+        // call getRestaurant() to make http post request
+        this.getRestaurant(lat, lng);
     }
 
     getUserLocation() {
@@ -40,6 +48,8 @@ class Home extends Component {
             userLocation: `${defaultLat}, ${defaultLng}`
         })
         console.log(`Default geolocation is ${defaultLng}, ${defaultLat}`);
+                // call getRestaurant() to make http post request
+        this.getRestaurant(defaultLat, defaultLng);
     }
 
     componentDidMount() {
