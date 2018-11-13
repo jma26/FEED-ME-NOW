@@ -15,15 +15,19 @@ class Map extends Component {
         if (this.state.userLocation !== nextProps.userLocation) {
             this.setState({
                 userLocation: nextProps.userLocation
-            }, this.loadDirections)
-        } 
+            })
+        }
+        if (nextProps.restaurant) {
+            this.loadDirections(nextProps.restaurant.coords);
+        }
     }
 
-    loadDirections() {
-        console.log(this.state.userLocation);
+    loadDirections(coords) {
+        console.log(coords);
+        let restaurantCoords = `${coords.latitude}, ${coords.longitude}`;
         window.L.mapquest.directions().route({
             start: `${this.state.userLocation}`,
-            end: '38.447536, -122.701134'
+            end: restaurantCoords
         })
     }
 
