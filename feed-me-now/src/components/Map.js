@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Map.css';
 
 class Map extends Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class Map extends Component {
         var map = window.L.mapquest.map('map', {
             center: this.props.center,
             layers: window.L.mapquest.tileLayer(this.props.baseLayer),
-            zoom: this.props.zoom,
+            zoom: this.props.zoom
         });
         // Position zoom control
         map.zoomControl.setPosition('topright');
@@ -62,9 +63,9 @@ class Map extends Component {
         var destination;
         if (this.props.restaurant) {
             destination = 
-            <div className="Map__destination">
-                <a href={this.props.restaurant.url} target="_blank"><p>{this.props.restaurant.name}</p></a>
-                <p>{this.iterateRestaurantAddress(this.props.restaurant.address)}</p>
+            <div className="destination">
+                <p className="destination__name white-bg">Go eat at <a href={this.props.restaurant.url} target="_blank" rel="noopener noreferrer" className="destination__link">{this.props.restaurant.name}</a></p>
+                <p className="destination-box__address white-bg">{this.iterateRestaurantAddress(this.props.restaurant.address)}</p>
             </div>
         }
         const mapStyle = {
