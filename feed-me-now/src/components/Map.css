@@ -1,0 +1,25 @@
+#map {
+    z-index: 1;
+}
+
+.destination {
+    z-index: 2;
+    top: 0;
+    padding-left: 16px;
+    position: absolute;
+    text-align: left;
+}
+
+.destination__name {
+    display: inline-block;
+}
+
+.destination__link {
+    text-decoration: none;
+}
+
+.white-bg {
+    background-color: white;
+    font-size: 24px;
+    padding: 8px;
+}
