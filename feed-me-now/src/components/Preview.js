@@ -13,10 +13,10 @@ class Preview extends Component {
                 <h2 className="Preview__content"> Click accept to share your location or decline to manually input it. </h2>
                 <img src={`${logoPath}`} alt="Brand logo" />
                 <div className="Preview__btns">
-                    <button className="Preview__btn--green preview_btns">
+                    <button className="Preview__btn--green preview-btns">
                         <Link to={{pathname: "/home", state: {isSharingGeolocation: true} }} style={{textDecoration: 'none', color: '#FFF'}}> Accept </Link>
                     </button>
-                    <button className="Preview__btn--red preview_btns">
+                    <button className="Preview__btn--red preview-btns">
                         <Link to={{pathname: "/home", state: {isSharingGeolocation: false} }} style={{textDecoration: 'none', color: '#FFF'}}> Decline </Link>
                     </button>
                 </div>
