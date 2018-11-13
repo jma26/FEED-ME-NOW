@@ -7,6 +7,7 @@ class Map extends Component {
             userLocation: null
          };
          this.loadDirections=this.loadDirections.bind(this);
+         this.iterateRestaurantAddress=this.iterateRestaurantAddress.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -14,7 +15,7 @@ class Map extends Component {
             this.setState({
                 userLocation: nextProps.userLocation
             }, this.loadDirections)
-        }
+        } 
     }
 
     loadDirections() {
@@ -25,13 +26,24 @@ class Map extends Component {
         })
     }
 
+    iterateRestaurantAddress(address) {
+        var restaurant_address = '';
+        for (let i = 0; i < address.length; i++) {
+            restaurant_address += ` ${address[i]}`;
+        }
+        console.log(restaurant_address);
+        return restaurant_address;
+    }
+
     componentDidMount() {
         window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_API_KEY;
-        window.L.mapquest.map('map', {
+        var map = window.L.mapquest.map('map', {
             center: this.props.center,
             layers: window.L.mapquest.tileLayer(this.props.baseLayer),
             zoom: this.props.zoom,
         });
+        // Position zoom control
+        map.zoomControl.setPosition('topright');
         let directions = window.L.mapquest.directions();
         directions.setLayerOptions({
             startMarker: {
@@ -47,6 +59,14 @@ class Map extends Component {
     }
 
     render() {
+        var destination;
+        if (this.props.restaurant) {
+            destination = 
+            <div className="Map__destination">
+                <a href={this.props.restaurant.url} target="_blank"><p>{this.props.restaurant.name}</p></a>
+                <p>{this.iterateRestaurantAddress(this.props.restaurant.address)}</p>
+            </div>
+        }
         const mapStyle = {
             height: this.props.height,
             width: this.props.width
@@ -54,6 +74,7 @@ class Map extends Component {
         return (
             <div className="Map">
                 <div id="map" style={mapStyle}></div>
+                {destination}
             </div>
         )
     }
