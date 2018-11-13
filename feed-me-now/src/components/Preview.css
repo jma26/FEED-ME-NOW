@@ -1,6 +1,14 @@
+.Preview__intro {
+    color: #FFF;
+}
+
 .Preview__btns {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Preview__content {
+    color: #FFF;
 }
 
 .Preview__btn--green {
@@ -11,23 +19,24 @@
     background-color: #F60A09;
 }
 
-.preview_btns {
+.preview-btns {
     padding: 6px;
     color: #FFF;
 }
 
 .Preview__intro--mobile-content {
-  display: none;
+    color: #FFF;
+    display: none;
 }
 
 /* Mobile smartphones (portrait)*/
 @media only screen and (max-width: 480px) {
-  .Preview__intro {
-    display: none;
-  }
-  .Preview__intro--mobile-content {
-    display: block;
-  }
+    .Preview__intro {
+        display: none;
+    }
+    .Preview__intro--mobile-content {
+        display: block;
+    }
 }
 
 /* Tablets, mobiles (landscape) */
