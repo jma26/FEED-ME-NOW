@@ -80,6 +80,9 @@ class Map extends Component {
             <div className="Map">
                 <div id="map" style={mapStyle}></div>
                 {destination}
+                <div className="footer">
+                    <button className="footer__btn blk-bg">No, I don't want that</button>
+                </div>
             </div>
         )
     }
