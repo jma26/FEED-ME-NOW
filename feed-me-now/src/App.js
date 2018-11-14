@@ -11,7 +11,9 @@ class App extends Component {
             <div className="App">
                 <Route exact path="/" component={ Preview } />
                 <Switch>
-                    <Route path="/home" component={ Home } />
+                    <Route path="/home" component={props => (
+                        <Home timestamp={new Date().toString()} {...props} />
+                    )} />
                 </Switch>
             </div>
         );
