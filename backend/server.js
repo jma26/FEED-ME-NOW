@@ -25,6 +25,7 @@ app.post('/getrestaurant', (req, res, next) => {
     if (req.body.hasGeolocation) {
         yelpParams = {
             term: 'restaurants',
+            limit: 50,
             latitude: req.body.lat,
             longitude: req.body.lng
         }
