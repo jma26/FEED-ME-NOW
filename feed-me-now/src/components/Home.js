@@ -21,6 +21,7 @@ class Home extends Component {
             hasGeolocation: true
         })
         .then((response) => {
+            console.log(response);
             this.setState({
                 restaurant: {
                     name: response.data.name,
@@ -31,7 +32,6 @@ class Home extends Component {
                     url: response.data.url
                 },
             })
-            console.log(response);
         }); 
     }
 
@@ -71,6 +71,7 @@ class Home extends Component {
             <div className="Home">
                 <Header />
                 <Map
+                    isSharingGeolocation={this.state.geolocation}
                     restaurant={this.state.restaurant}
                     userLocation={this.state.userLocation}
                     height={'100vh'}
