@@ -11,6 +11,12 @@
     color: #FFF;
 }
 
+.Preview__logo-container {
+    animation-duration: 1s;
+    animation-delay: 1s;
+    height: 300px;
+}
+
 .Preview__btn--green {
     background-color: #1EB118;
 }
