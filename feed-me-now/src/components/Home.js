@@ -77,7 +77,7 @@ class Home extends Component {
                     height={'100vh'}
                     width={'100%'}
                     center={[37.7749, -122.4194]}
-                    baseLayer={'light'}
+                    baseLayer={'map'}
                     zoom={14}
                 />
             </div>
