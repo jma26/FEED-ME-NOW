@@ -27,7 +27,7 @@ class Map extends Component {
         console.log(coords);
         let restaurantCoords = `${coords.latitude}, ${coords.longitude}`;
         window.L.mapquest.directions().route({
-            start: `${this.state.userLocation}`,
+            start: this.props.userLocation,
             end: restaurantCoords
         })
     }
@@ -42,11 +42,12 @@ class Map extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.center);
         window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_API_KEY;
         var map = window.L.mapquest.map('map', {
             center: this.props.center,
-            layers: window.L.mapquest.tileLayer(this.props.baseLayer),
-            zoom: this.props.zoom
+            zoom: this.props.zoom,
+            layers: window.L.mapquest.tileLayer(this.props.baseLayer)
         });
         // Position zoom control
         map.zoomControl.setPosition('topright');
