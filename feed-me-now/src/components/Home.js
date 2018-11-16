@@ -3,12 +3,13 @@ import axios from 'axios';
 
 import Header from './Header';
 import Map from './Map';
+import Loading from './Loading';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            geolocation: props.location.state.isSharingGeolocation
+            geolocation: props.location.state.isSharingGeolocation,
         }
         this.displayLocationInfo = this.displayLocationInfo.bind(this);
     }
@@ -39,7 +40,8 @@ class Home extends Component {
         const lng = position.coords.longitude;
         const lat = position.coords.latitude;
         this.setState({
-            userLocation: `${lat}, ${lng}`
+            userLocation: `${lat}, ${lng}`,
+            center: [lat, lng]
         })
         console.log(`User's geolocation is ${lng}, ${lat}`);
         // call getRestaurant() to make http post request
@@ -55,7 +57,8 @@ class Home extends Component {
         const defaultLng = -122.083855;
         const defaultLat = 37.386051;
         this.setState({
-            userLocation: `${defaultLat}, ${defaultLng}`
+            userLocation: `${defaultLat}, ${defaultLng}`,
+            center: [defaultLat, defaultLng]
         })
         console.log(`Default geolocation is ${defaultLng}, ${defaultLat}`);
                 // call getRestaurant() to make http post request
@@ -70,16 +73,19 @@ class Home extends Component {
         return (
             <div className="Home">
                 <Header />
-                <Map
-                    isSharingGeolocation={this.state.geolocation}
-                    restaurant={this.state.restaurant}
-                    userLocation={this.state.userLocation}
-                    height={'100vh'}
-                    width={'100%'}
-                    center={[37.7749, -122.4194]}
-                    baseLayer={'map'}
-                    zoom={14}
-                />
+                {/* Show loading component if data is loading */}
+                {
+                    this.state.center && this.state.userLocation ? <Map
+                        isSharingGeolocation={this.state.geolocation}
+                        restaurant={this.state.restaurant}
+                        userLocation={this.state.userLocation}
+                        height={'100vh'}
+                        width={'100%'}
+                        center={this.state.center}
+                        baseLayer={'map'}
+                        zoom={14}
+                    /> : <Loading />
+                }
             </div>
         )
     }
