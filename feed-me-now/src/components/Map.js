@@ -84,7 +84,7 @@ class Map extends Component {
                 {destination}
                 <div className="footer">
                     <button className="footer__btn blk-bg animated slideInRight">
-                        <Link to={{pathname: "/home", state: {isSharingGeolocation: this.props.isSharingGeolocation} }} style={{textDecoration: 'none'}}> No, I don't want that </Link>
+                        <Link to={{pathname: "/home", state: {isSharingGeolocation: this.props.isSharingGeolocation} }} style={{textDecoration: 'none', color: '#FFF'}}> No, I don't want that </Link>
                     </button>
                 </div>
             </div>

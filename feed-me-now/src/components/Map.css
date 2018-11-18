@@ -5,7 +5,7 @@
 .destination {
     z-index: 2;
     top: 0;
-    padding-left: 16px;
+    left: 3rem;
     position: absolute;
     text-align: left;
 }
@@ -19,15 +19,23 @@
 }
 
 .white-bg {
+    font-weight: 700;
+    letter-spacing: 1px;
     background-color: white;
     font-size: 24px;
-    padding: 8px;
+    padding: 16px;
+    border: 1px solid black;
 }
 
 .footer__btn {
+    border: 1px solid #FFF;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 24px;
     z-index: 2;
     padding: 16px;
     position: fixed;
-    right: 0;
-    bottom: 2rem;
+    right: 3rem;
+    bottom: 3rem;
+    background-color: black;
 }
