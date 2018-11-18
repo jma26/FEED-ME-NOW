@@ -16,10 +16,10 @@ class Preview extends Component {
                 </div>
                 <div className="Preview__btns">
                     <button className="Preview__btn--green preview-btns">
-                        <Link to={{pathname: "/home", state: {isSharingGeolocation: true} }} style={{textDecoration: 'none', color: '#FFF'}}> Accept </Link>
+                        <Link to={{pathname: "/home", state: {isSharingGeolocation: true} }} style={{textDecoration: 'none', color: '#FFF', padding: '32px'}}> Accept </Link>
                     </button>
                     <button className="Preview__btn--red preview-btns">
-                        <Link to={{pathname: "/home", state: {isSharingGeolocation: false} }} style={{textDecoration: 'none', color: '#FFF'}}> Decline </Link>
+                        <Link to={{pathname: "/home", state: {isSharingGeolocation: false} }} style={{textDecoration: 'none', color: '#FFF', padding: '32px'}}> Decline </Link>
                     </button>
                 </div>
             </div>
