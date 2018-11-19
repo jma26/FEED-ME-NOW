@@ -27,17 +27,3 @@
     border: 1px solid black;
     box-shadow: 0px 0px 4px 1px black;
 }
-
-.footer__btn {
-    border: 1px solid #FFF;
-    letter-spacing: 1px;
-    font-weight: 700;
-    font-size: 24px;
-    z-index: 2;
-    padding: 16px;
-    position: fixed;
-    right: 3rem;
-    bottom: 3rem;
-    background-color: black;
-    box-shadow: 0px 0px 4px 1px #FFF;
-}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './Map.css';
+
+import Footer from './Footer';
 
 class Map extends Component {
     constructor(props) {
@@ -82,11 +83,7 @@ class Map extends Component {
             <div className="Map">
                 <div id="map" style={mapStyle}></div>
                 {destination}
-                <div className="footer">
-                    <button className="footer__btn blk-bg animated slideInRight">
-                        <Link to={{pathname: "/home", state: {isSharingGeolocation: this.props.isSharingGeolocation} }} style={{textDecoration: 'none', color: '#FFF'}}> No, I don't want that </Link>
-                    </button>
-                </div>
+                <Footer />
             </div>
         )
     }
