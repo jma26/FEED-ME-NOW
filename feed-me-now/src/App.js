@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from './components/Home';
 import Preview from './components/Preview';
+import Location from './components/Location';
 
 class App extends Component {
     render() {
@@ -14,6 +15,7 @@ class App extends Component {
                     <Route path="/home" component={props => (
                         <Home timestamp={new Date().toString()} {...props} />
                     )} />
+                    <Route path="/location" component={ Location } />
                 </Switch>
             </div>
         );
