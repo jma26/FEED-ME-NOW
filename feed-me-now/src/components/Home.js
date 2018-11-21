@@ -10,6 +10,10 @@ class Home extends Component {
         super(props);
         this.state = {
             geolocation: props.location.state.isSharingGeolocation,
+            manualLocationInfo: props.location.state.manualLocationInfo,
+            isManuallyLocated: props.location.state.isManuallyLocated,
+            center: props.location.state.center,
+            userLocation: props.location.state.userLocation
         }
         this.displayLocationInfo = this.displayLocationInfo.bind(this);
     }
@@ -53,6 +57,29 @@ class Home extends Component {
         navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
     }
 
+    geoCodeLocation() {
+        console.log(`Geocoding address....${this.props.location.state.manualLocationInfo}`);
+        const MAPQUEST_GEOCODING_API_URL = 'http://www.mapquestapi.com/geocoding/v1/address';
+        axios.get(`${MAPQUEST_GEOCODING_API_URL}?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${this.props.location.state.manualLocationInfo}`)
+        .then((response) => {
+            const geoCoordinates = response.data.results[0].locations[0].latLng;
+            this.getRestaurant(geoCoordinates.lat, geoCoordinates.lng);
+            this.setState({
+                userLocation: `${geoCoordinates.lat}, ${geoCoordinates.lng}`,
+                center: [geoCoordinates.lat, geoCoordinates.lng]
+            })
+            console.log(`${geoCoordinates.lat}, ${geoCoordinates.lng}`);
+
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+
+    reloadNewRestaurant() {
+        this.getRestaurant(this.state.center[0], this.state.center[1]);
+    }
+
     defaultLocation() {
         const defaultLng = -122.083855;
         const defaultLat = 37.386051;
@@ -66,7 +93,15 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        navigator.geolocation && this.state.geolocation ? this.getUserLocation() : this.defaultLocation();
+        if (this.props.location.state.isManuallyLocated) {
+            this.geoCodeLocation();
+        } else if (navigator.geolocation && this.state.geolocation) {
+            this.getUserLocation();
+        } else if (this.state.center && this.state.userLocation) {
+            this.reloadNewRestaurant();
+        } else {
+            this.defaultLocation();
+        }
     }
 
     render() {
