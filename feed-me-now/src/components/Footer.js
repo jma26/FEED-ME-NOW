@@ -13,7 +13,7 @@ class Footer extends Component {
         return (
             <div className="Footer">
                 <button className="footer__dislike-btn blk-bg animated slideInRight">
-                    <Link to={{pathname: "/home", state: {isSharingGeolocation: this.props.isSharingGeolocation} }} style={{textDecoration: 'none', color: '#FFF'}}> No, I don't want that </Link>
+                    <Link to={{pathname: "/home", state: {isSharingGeolocation: this.props.isSharingGeolocation, userLocation: this.props.userLocation, center: this.props.center} }} style={{textDecoration: 'none', color: '#FFF'}}> No, I don't want that </Link>
                 </button>
                 <div className="footer-container">
                     <div className="footer-container__social">
@@ -23,7 +23,7 @@ class Footer extends Component {
                         <p className="footer-container__content">Jesse Ma</p>
                     </div>
                     <button className="footer-container__location-btn">
-                        <Link to={{pathname: "/location", state: {isSharingGeolocation: false} }} style={{textDecoration: 'none'}}>Change Location</Link>
+                        <Link to={{pathname: "/location", state: {isSharingGeolocation: false, userLocation: this.props.userLocation, center: this.props.center} }} style={{textDecoration: 'none'}}>Change Location</Link>
                     </button>
                 </div>
             </div>
