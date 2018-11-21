@@ -21,7 +21,7 @@ class Location extends Component {
                 <h2> Enter your location </h2>
                 <input type="text" name="userLocation" value={this.state.userLocation} onChange={(e) => this.onChange(e)} />
                 <button className="location__location-btn">
-                    <Link to={{pathname: "/home", state: {isSharingGeolocation: false, isManuallyLocated: true} }}>Find new restaurant</Link>
+                    <Link to={{pathname: "/home", state: {isSharingGeolocation: false, isManuallyLocated: true, manualLocationInfo: this.state.userLocation} }}>Find new restaurant</Link>
                 </button>
             </div>
         )
