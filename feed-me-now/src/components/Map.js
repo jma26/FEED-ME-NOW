@@ -83,7 +83,11 @@ class Map extends Component {
             <div className="Map">
                 <div id="map" style={mapStyle}></div>
                 {destination}
-                <Footer />
+                <Footer
+                    center={this.props.center}
+                    isSharingGeolocation={this.props.isSharingGeolocation}
+                    userLocation={this.props.userLocation}
+                />
             </div>
         )
     }
