@@ -8,7 +8,8 @@
 
 .footer__dislike-btn {
     border: 1px solid #FFF;
-    letter-spacing: 1px;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
     font-weight: 700;
     font-size: 24px;
     z-index: 2;
@@ -21,14 +22,21 @@
 }
 
 .footer-container {
+    background-color: #1C82F1;
     display: flex;
     justify-content: space-between;
 }
 
 .footer-container__content {
+    color: #FFF;
     display: inline-block;
+    letter-spacing: 0.12rem;
     margin-left: 24px;
-    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-container__social-link:visited {
+    color: #FFF;
 }
 
 .footer-container__icons {
@@ -36,6 +44,21 @@
 }
 
 .footer-container__location-btn {
+    background-color: inherit;
+    border: none;
+    letter-spacing: 0.12rem;
     padding: 0px 32px;
-    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-container__location-btn:hover {
+    background-color: #F18B1C;
+}
+
+.footer-container__location-btn-link {
+    color: #FFF;
+}
+
+.footer-container__location-btn:hover a {
+    color: black !important;
 }
