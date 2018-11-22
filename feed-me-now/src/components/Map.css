@@ -8,6 +8,7 @@
     left: 3rem;
     position: absolute;
     text-align: left;
+    text-transform: uppercase;
 }
 
 .destination__name {
@@ -20,7 +21,7 @@
 
 .white-bg {
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.12rem;
     background-color: white;
     font-size: 24px;
     padding: 16px;
