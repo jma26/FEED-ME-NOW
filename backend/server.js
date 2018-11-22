@@ -36,7 +36,7 @@ app.post('/getrestaurant', (req, res, next) => {
     .then((response) => {
         // Pick random restaurant
         const numberOfRestaurants = response.data.businesses.length;
-        const randomInteger = Math.floor(Math.random() * numberOfRestaurants + 1);
+        const randomInteger = Math.floor(Math.random() * numberOfRestaurants);
         let restaurant = response.data.businesses[randomInteger];
         res.json(restaurant);
     })
