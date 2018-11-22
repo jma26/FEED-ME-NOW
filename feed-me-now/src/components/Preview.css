@@ -25,13 +25,22 @@
     background-color: #1EB118;
 }
 
+.Preview__btn--green:hover {
+    background-color: #007B00;
+}
+
 .Preview__btn--red {
-    background-color: #F60A09;
+    background-color: #FF0000;
+}
+
+.Preview__btn--red:hover {
+    background-color: #B30000;
 }
 
 .preview-btns {
-    padding: 6px;
+    border: none;
     color: #FFF;
+    padding: 6px;
 }
 
 .Preview__intro--mobile-content {
