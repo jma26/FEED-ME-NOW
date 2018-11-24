@@ -5,7 +5,7 @@
 .destination {
     z-index: 2;
     top: 0;
-    left: 3rem;
+    left: 0rem;
     position: absolute;
     text-align: left;
     text-transform: uppercase;
@@ -27,4 +27,11 @@
     padding: 16px;
     border: 1px solid black;
     box-shadow: 0px 0px 4px 1px black;
+}
+
+/* Adjust .destination box for screen sizes > tablets */
+@media only screen and (min-width: 768px) {
+    .destination {
+        left: 3rem;
+    }
 }
