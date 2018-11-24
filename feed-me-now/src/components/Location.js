@@ -1,12 +1,39 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import './Location.css';
+import axios from 'axios';
 
 class Location extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            'userLocation': ''
+            userLocation: '',
+            hasError: false
         }
+    }
+
+    findGeoLocation() {
+        console.log(`Geocoding address....`);
+        const MAPQUEST_GEOCODING_API_URL = 'http://www.mapquestapi.com/geocoding/v1/address';
+        axios.get(`${MAPQUEST_GEOCODING_API_URL}?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${this.state.userLocation}`)
+        .then((response) => {
+            const geoCoordinates = response.data.results[0].locations[0].latLng;
+            console.log(geoCoordinates);
+            this.props.history.push({
+                pathname: '/home',
+                state: {
+                    'userLocation': `${geoCoordinates.lat}, ${geoCoordinates.lng}`,
+                    'center': [geoCoordinates.lat, geoCoordinates.lng],
+                    'geolocation': false
+                }
+            })
+            console.log(`${geoCoordinates.lat}, ${geoCoordinates.lng}`);
+        })
+        .catch((error) => {
+            this.setState({
+                hasGeoLocationError: true
+            })
+            console.log(error);
+        });
     }
 
     onChange(e) {
@@ -18,11 +45,9 @@ class Location extends Component {
     render() {
         return (
             <div className="Location">
-                <h2> Enter your location </h2>
+                <h2 className="location__headline--color"> Enter your location </h2>
                 <input type="text" name="userLocation" value={this.state.userLocation} onChange={(e) => this.onChange(e)} />
-                <button className="location__location-btn">
-                    <Link to={{pathname: "/home", state: {isSharingGeolocation: false, isManuallyLocated: true, manualLocationInfo: this.state.userLocation} }}>Find new restaurant</Link>
-                </button>
+                <button onClick={(e) => this.findGeoLocation()} disabled={!this.state.userLocation} className="location__location-btn">Find a place to eat</button>
             </div>
         )
     }
