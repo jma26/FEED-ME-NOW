@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Preview from './components/Preview';
 import Location from './components/Location';
+import Error from './components/Error';
 
 class App extends Component {
     render() {
@@ -16,6 +17,7 @@ class App extends Component {
                         <Home timestamp={new Date().toString()} {...props} />
                     )} />
                     <Route path="/location" component={ Location } />
+                    <Route path="/error" component={ Error } />
                 </Switch>
             </div>
         );
