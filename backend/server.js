@@ -34,11 +34,15 @@ app.post('/getrestaurant', (req, res, next) => {
         params: {...yelpParams}
     })
     .then((response) => {
-        // Pick random restaurant
-        const numberOfRestaurants = response.data.businesses.length;
-        const randomInteger = Math.floor(Math.random() * numberOfRestaurants);
-        let restaurant = response.data.businesses[randomInteger];
-        res.json(restaurant);
+        if (response.data.businesses.length === 0) {
+            res.json({error: 'No restaurants found'});
+        } else {
+            // Pick random restaurant
+            const numberOfRestaurants = response.data.businesses.length;
+            const randomInteger = Math.floor(Math.random() * numberOfRestaurants);
+            let restaurant = response.data.businesses[randomInteger];
+            res.json(restaurant);
+        }
     })
     .catch((error) => {
         console.log(error);
