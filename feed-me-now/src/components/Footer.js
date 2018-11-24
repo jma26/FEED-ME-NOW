@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 
 class Footer extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="Footer">
@@ -17,9 +13,9 @@ class Footer extends Component {
                 </button>
                 <div className="footer-container">
                     <div className="footer-container__social">
-                        <a href="https://github.com/jma26" target="_blank" className="footer-container__social-link"><FontAwesomeIcon icon={faGithub} size="lg" 
+                        <a href="https://github.com/jma26" target="_blank" rel="noopener noreferrer" className="footer-container__social-link"><FontAwesomeIcon icon={faGithub} size="lg" 
                         className="footer-container__icons social-links--hyperlink" /></a>
-                        <a href="https://www.linkedin.com/in/jesse-ma-b2522b84/" target="_blank" className="footer-container__social-link"><FontAwesomeIcon icon={faLinkedin} size="lg" className="footer-container__icons social-links--hyperlink" /></a>
+                        <a href="https://www.linkedin.com/in/jesse-ma-b2522b84/" target="_blank" rel="noopener noreferrer" className="footer-container__social-link"><FontAwesomeIcon icon={faLinkedin} size="lg" className="footer-container__icons social-links--hyperlink" /></a>
                         <p className="footer-container__content">Jesse Ma</p>
                     </div>
                     <button className="footer-container__location-btn">

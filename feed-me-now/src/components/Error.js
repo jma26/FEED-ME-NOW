@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import './Error.css';
 
 class Error extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div className="Error">
