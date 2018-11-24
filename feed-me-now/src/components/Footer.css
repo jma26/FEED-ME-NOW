@@ -65,6 +65,9 @@
 
 /* Mobile smartphones (portrait)*/
 @media only screen and (max-width: 480px) {
+    .footer__dislike-btn {
+        width: 100%;
+    }
     .footer-container__icons, .footer-container__content, .footer-container__location-btn-link {
         margin-left: 8px;
     }
