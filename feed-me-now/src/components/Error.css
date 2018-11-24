@@ -1,0 +1,84 @@
+.error__notfound {
+    left: 50%;
+    line-height: 1.4;
+    max-width: 520px;
+    position: absolute;
+    right: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+}
+
+.error__notfound .error__notfound-404 {
+    height: 240px;
+    position: relative;
+}
+
+.error__notfound .error__notfound-404 h1 {
+    color: #262626;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 252px;
+    font-weight: 900;
+    left: 50%;
+    letter-spacing: -40px;
+    margin: 0px;
+    margin-left: -20px;
+    position: absolute;
+    top: 50%;
+    text-transform: uppercase;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+  
+.error__notfound .error__notfound-404 h1 > span {
+    text-shadow: -8px 0px 0px #fff;
+}
+  
+.error__notfound-404 h3 {
+    color: #262626;
+    font-family: 'Cabin', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+    margin: 0px;
+    padding-left: 6px;
+    position: relative;
+    text-transform: uppercase;
+}
+  
+.error__headline--color {
+    color: #FFF;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+  
+@media only screen and (max-width: 767px) {
+    .error__notfound .error__notfound-404 {
+        height: 200px;
+    }
+    .error__notfound .error__notfound-404 h1 {
+        font-size: 200px;
+    }
+}
+  
+@media only screen and (max-width: 480px) {
+    .error__notfound .error__notfound-404 {
+        height: 162px;
+    }
+    .error__notfound .error__notfound-404 h1 {
+        font-size: 162px;
+        height: 150px;
+        line-height: 162px;
+    }
+    .error__notfound h2 {
+        font-size: 16px;
+    }
+}
