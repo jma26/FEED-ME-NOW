@@ -3,3 +3,14 @@
     text-transform: uppercase;
     letter-spacing: 0.12rem;
 }
+
+/* Mobile smartphones (portrait)*/
+@media only screen and (max-width: 481px) {
+    .location__location-input {
+        width: 178px;
+    }
+    .location__location-btn {
+        margin-top: 8px;
+        width: 178px;
+    }
+}

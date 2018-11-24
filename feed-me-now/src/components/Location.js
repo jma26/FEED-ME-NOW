@@ -45,8 +45,8 @@ class Location extends Component {
     render() {
         return (
             <div className="Location">
-                <h2 className="location__headline--color"> Enter your location </h2>
-                <input type="text" name="userLocation" value={this.state.userLocation} onChange={(e) => this.onChange(e)} />
+                <h2 className="location__headline--color location__headline"> Enter your location </h2>
+                <input type="text" name="userLocation" className="location__location-input" value={this.state.userLocation} onChange={(e) => this.onChange(e)} />
                 <button onClick={(e) => this.findGeoLocation()} disabled={!this.state.userLocation} className="location__location-btn">Find a place to eat</button>
             </div>
         )
