@@ -62,3 +62,13 @@
 .footer-container__location-btn:hover a {
     color: black !important;
 }
+
+/* Mobile smartphones (portrait)*/
+@media only screen and (max-width: 480px) {
+    .footer-container__icons, .footer-container__content, .footer-container__location-btn-link {
+        margin-left: 8px;
+    }
+    .footer-container__location-btn {
+        margin: 0px;
+    }
+}
