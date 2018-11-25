@@ -2,8 +2,12 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
+
+// Server static files from React frontend
+app.use(express.static(path.join(__dirname, 'feed-me-now/build')));
 
 // Handle cors
 app.use(cors());
@@ -47,6 +51,11 @@ app.post('/getrestaurant', (req, res, next) => {
     .catch((error) => {
         console.log(error);
     })
+});
+
+// Handles any requests that don't match the ones above
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/feed-me-now/build/index.html'));
 });
 
 app.listen(port, () => {
