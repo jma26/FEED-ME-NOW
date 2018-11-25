@@ -44,6 +44,7 @@ class Map extends Component {
 
     componentDidMount() {
         console.log(this.props.center);
+        console.log(process.env.MAPQUEST_API_KEY);
         window.L.mapquest.key = `${process.env.MAPQUEST_API_KEY}`;
         var map = window.L.mapquest.map('map', {
             center: this.props.center,
