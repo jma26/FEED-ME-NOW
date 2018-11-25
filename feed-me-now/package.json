@@ -18,7 +18,8 @@
   },
   "scripts": {
     "dev": "npm-run-all -p -r start backend",
-    "backend": "cd ../backend && nodemon",
+    "backend": "cd ../backend && npm install && nodemon",
+    "heroku-postbuild": "npm install && npm-run-all -p -r backend build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -27,6 +28,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://localhost:5000",
   "browserslist": [
     ">0.2%",
     "not dead",
