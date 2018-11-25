@@ -21,7 +21,7 @@ class Home extends Component {
 
     getRestaurant(lat, lng) {
         // http request to server
-        axios.post('http://localhost:8000/getrestaurant', {
+        axios.post('/getrestaurant', {
             lng: lng,
             lat: lat,
             hasGeolocation: true
