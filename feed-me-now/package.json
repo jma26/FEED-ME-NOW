@@ -17,9 +17,6 @@
     "react-scripts": "2.0.5"
   },
   "scripts": {
-    "dev": "npm-run-all -p -r start backend",
-    "backend": "cd ../backend && npm install && nodemon",
-    "heroku-postbuild": "npm install && npm-run-all -p -r backend build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
