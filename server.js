@@ -15,11 +15,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-const yelpKey = require('./yelpConfig.js')['yelpAPIKey'];
+// const yelpKey = require('./yelpConfig.js')['yelpAPIKey'];
 
 // Set config defaults for axios globally
 axios.defaults.baseURL = "https://api.yelp.com/v3/";
-axios.defaults.headers.common['Authorization'] = `Bearer ${yelpKey}`;
+axios.defaults.headers.common['Authorization'] = `Bearer ${YELP_API_KEY}`;
 
 const port = process.env.PORT || 5000;
 
