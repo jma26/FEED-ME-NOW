@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // Set config defaults for axios globally
 axios.defaults.baseURL = "https://api.yelp.com/v3/";
-axios.defaults.headers.common['Authorization'] = `Bearer ${YELP_API_KEY}`;
+axios.defaults.headers.common['Authorization'] = `Bearer ${process.env.YELP_API_KEY}`;
 
 const port = process.env.PORT || 5000;
 
