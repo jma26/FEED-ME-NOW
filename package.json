@@ -7,7 +7,7 @@
     "dev": "npm-run-all -p -r backend frontend",
     "heroku-postbuild": "npm-run-all -p -r backend frontend",
     "frontend": "cd feed-me-now && npm install && npm run start",
-    "backend": "npm install && nodemon",
+    "backend": "npm install && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
