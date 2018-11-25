@@ -29,6 +29,17 @@
     box-shadow: 0px 0px 4px 1px black;
 }
 
+/* Mobile smartphones (portrait)*/
+@media only screen and (max-width: 480px) {
+    .destination {
+        top: 0rem;
+    }
+    .white-bg {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
 /* Adjust .destination box for screen sizes > tablets */
 @media only screen and (min-width: 768px) {
     .destination {
