@@ -17,7 +17,7 @@ const yelpKey = require('./yelpConfig.js')['yelpAPIKey'];
 axios.defaults.baseURL = "https://api.yelp.com/v3/";
 axios.defaults.headers.common['Authorization'] = `Bearer ${yelpKey}`;
 
-const port = 8000;
+const port = process.env.PORT || 5000;
 
 app.post('/getrestaurant', (req, res, next) => {
     let yelpParams;
