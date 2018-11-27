@@ -38,9 +38,8 @@
 }
 
 .preview-btns {
-    border: none;
-    color: #FFF;
-    padding: 6px;
+    width: 112px;
+    padding: 16px;
 }
 
 .Preview__intro--mobile-content {
@@ -50,6 +49,9 @@
 
 /* Mobile smartphones (portrait)*/
 @media only screen and (max-width: 480px) {
+    .preview-btns {
+        padding: 8px;
+    }
     .Preview__intro {
         display: none;
     }
@@ -60,15 +62,18 @@
 
 /* Tablets, mobiles (landscape) */
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-  .Preview__intro {
-    display: none;
-  }
-  .Preview__intro--mobile-content {
-    display: block;
-  }
-  .preview_btns {
-    padding: 12px;
-  }
+    .preview-btns {
+        padding: 12px;
+    }
+    .Preview__intro {
+        display: none;
+    }
+    .Preview__intro--mobile-content {
+        display: block;
+    }
+    .preview_btns {
+        padding: 12px;
+    }
 }
 
 /* Tablets, iPads (landscape) */
