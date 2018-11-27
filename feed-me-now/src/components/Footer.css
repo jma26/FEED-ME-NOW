@@ -65,6 +65,12 @@
 
 /* Mobile smartphones (portrait)*/
 @media only screen and (max-width: 480px) {
+    .footer-container {
+        padding: 16px;
+    }
+    .footer-container__content {
+        display: none;
+    }
     .footer__dislike-btn {
         font-size: 16px;
         padding: 8px;
