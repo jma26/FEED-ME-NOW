@@ -15,12 +15,8 @@ class Preview extends Component {
                     <img src={`${logoPath}`} alt="Brand logo" className="Preview__logo" />
                 </div>
                 <div className="Preview__btns">
-                    <button className="Preview__btn--green preview-btns">
-                        <Link to={{pathname: "/home", state: {isSharingGeolocation: true} }} style={{textDecoration: 'none', color: '#FFF', padding: '32px'}}> Accept </Link>
-                    </button>
-                    <button className="Preview__btn--red preview-btns">
-                        <Link to={{pathname: "/home", state: {isSharingGeolocation: false} }} style={{textDecoration: 'none', color: '#FFF', padding: '32px'}}> Decline </Link>
-                    </button>
+                    <Link to={{pathname: "/home", state: {isSharingGeolocation: true} }} style={{textDecoration: 'none', color: '#FFF'}} className="Preview__btn--green preview-btns"> Accept </Link>
+                    <Link to={{pathname: "/home", state: {isSharingGeolocation: false} }} style={{textDecoration: 'none', color: '#FFF'}} className="Preview__btn--red preview-btns"> Decline </Link>
                 </div>
             </div>
         )
