@@ -44,23 +44,15 @@
 }
 
 .footer-container__location-btn {
-    background-color: inherit;
-    border: none;
+    color: #FFF;
     letter-spacing: 0.12rem;
-    padding: 0px 32px;
+    margin-top: 16px;
+    margin-right: 24px;
     text-transform: uppercase;
 }
 
 .footer-container__location-btn:hover {
-    background-color: #F18B1C;
-}
-
-.footer-container__location-btn-link {
-    color: #FFF;
-}
-
-.footer-container__location-btn:hover a {
-    color: black !important;
+    color: #F18B1C;
 }
 
 /* Mobile smartphones (portrait)*/
@@ -76,8 +68,8 @@
         padding: 8px;
         width: 100%;
     }
-    .footer-container__icons, .footer-container__content, .footer-container__location-btn-link {
-        margin-left: 8px;
+    .footer-container__icons {
+        margin-left: 16px;
     }
     .footer-container__location-btn {
         margin: 0px;
