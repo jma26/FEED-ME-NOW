@@ -1,6 +1,6 @@
 # FEED-ME-NOW
 
-LIVE LINK: https://morning-citadel-23117.herokuapp.com/
+LIVE LINK: https://feed-me-now-1.herokuapp.com/
 
 ### Development - development branch
 /feed-me-now
