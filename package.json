@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "dev": "npm-run-all -p -r backend frontend",
+    "heroku-prebuild": "npm install && cd feed-me-now npm install",
     "heroku-postbuild": "npm-run-all -p -r backend frontend",
-    "frontend": "cd feed-me-now && npm install && npm run build",
-    "backend": "npm install && node server.js",
+    "frontend": "cd feed-me-now && npm run build",
+    "backend": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
