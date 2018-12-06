@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "npm-run-all -p -r backend frontend",
-    "heroku-prebuild": "npm install && cd feed-me-now npm install",
+    "heroku-prebuild": "npm install && cd feed-me-now && npm install",
     "heroku-postbuild": "npm-run-all -p -r backend frontend",
     "frontend": "cd feed-me-now && npm run build",
     "backend": "node server.js",
