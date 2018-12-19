@@ -25,7 +25,6 @@ class Map extends Component {
     }
 
     loadDirections(coords) {
-        console.log(coords);
         let restaurantCoords = `${coords.latitude}, ${coords.longitude}`;
         window.L.mapquest.directions().route({
             start: this.props.userLocation,
@@ -43,8 +42,6 @@ class Map extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.center);
-        console.log(process.env.REACT_APP_MAPQUEST_API_KEY);
         window.L.mapquest.key = `${process.env.REACT_APP_MAPQUEST_API_KEY}`;
         var map = window.L.mapquest.map('map', {
             center: this.props.center,

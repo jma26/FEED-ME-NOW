@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-import Header from './Header';
 import Map from './Map';
 import Loading from './Loading';
 
@@ -27,9 +26,7 @@ class Home extends Component {
             hasGeolocation: true
         })
         .then((response) => {
-            console.log(response);
             if (response.data.error) {
-                console.log('Sorry, no restaurants found');
                 this.setState({
                     hasError: true,
                     errorMsg: response.data.error
@@ -117,7 +114,6 @@ class Home extends Component {
         }
         return (
             <div className="Home">
-                <Header />
                 {REDIRECT_COMPONENT}
                 {MAP_LOADING_COMPONENT}
             </div>
