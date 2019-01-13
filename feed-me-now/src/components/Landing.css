@@ -1,98 +1,98 @@
-.Preview {
+.Landing {
     overflow-y: hidden;
 }
 
-.Preview__intro {
+.Landing__intro {
     color: #FFF;
 }
 
-.Preview__btns {
+.Landing__btns {
     display: flex;
     justify-content: space-around;
 }
 
-.Preview__content {
+.Landing__content {
     color: #FFF;
 }
 
-.Preview__logo-container {
+.Landing__logo-container {
     animation-duration: 1s;
     animation-delay: 1s;
     height: 300px;
 }
 
-.Preview__btn--green {
+.Landing__btn--green {
     background-color: #1EB118;
 }
 
-.Preview__btn--green:hover {
+.Landing__btn--green:hover {
     background-color: #007B00;
 }
 
-.Preview__btn--red {
+.Landing__btn--red {
     background-color: #FF0000;
 }
 
-.Preview__btn--red:hover {
+.Landing__btn--red:hover {
     background-color: #B30000;
 }
 
-.preview-btns {
+.Landing-btns {
     width: 112px;
     padding: 16px;
 }
 
-.Preview__intro--mobile-content {
+.Landing__intro--mobile-content {
     color: #FFF;
     display: none;
 }
 
 /* Mobile smartphones (portrait)*/
 @media only screen and (max-width: 480px) {
-    .preview-btns {
+    .Landing-btns {
         padding: 8px;
     }
-    .Preview__intro {
+    .Landing__intro {
         display: none;
     }
-    .Preview__intro--mobile-content {
+    .Landing__intro--mobile-content {
         display: block;
     }
 }
 
 /* Tablets, mobiles (landscape) */
 @media only screen and (min-width: 481px) and (max-width: 767px) {
-    .preview-btns {
+    .Landing-btns {
         padding: 12px;
     }
-    .Preview__intro {
+    .Landing__intro {
         display: none;
     }
-    .Preview__intro--mobile-content {
+    .Landing__intro--mobile-content {
         display: block;
     }
-    .preview_btns {
+    .Landing_btns {
         padding: 12px;
     }
 }
 
 /* Tablets, iPads (landscape) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .preview_btns {
+  .Landing_btns {
     padding: 16px;
   }
 }
 
 /* Laptops, desktops */
 @media only screen and (min-width: 1025px) and (max-width: 1280px) {
-  .preview_btns {
+  .Landing_btns {
     padding: 20px;
   }
 }
 
 /* Desktops */
 @media only screen and (min-width: 1281px) {
-  .preview_btns {
+  .Landing_btns {
     padding: 24px;
   }
 }
