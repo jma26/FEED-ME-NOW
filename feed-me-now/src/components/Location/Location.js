@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Location.css';
+import '../../css/Location/Location.css';
 import axios from 'axios';
 
 class Location extends Component {

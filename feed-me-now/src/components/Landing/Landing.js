@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Landing.css';
+import '../../css/Landing/Landing.css';
 import { Link } from 'react-router-dom';
 
 const logoPath = process.env.PUBLIC_URL + '/assets/imgs/logo.svg';

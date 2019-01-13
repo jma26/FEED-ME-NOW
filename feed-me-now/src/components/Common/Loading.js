@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Loading.css';
+import '../../css/Common/Loading.css';
 
 class Loading extends Component {
     render() {

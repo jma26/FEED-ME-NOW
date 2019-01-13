@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-import Map from './Map';
+import Map from '../Map/Map';
 import Loading from './Loading';
 
 class Home extends Component {

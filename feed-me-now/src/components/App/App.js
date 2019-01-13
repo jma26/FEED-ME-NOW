@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../../css/App/App.css';
 import { Route, Switch } from 'react-router-dom';
 
-import Home from './components/Home';
-import Landing from './components/Landing';
-import Location from './components/Location';
-import Error from './components/Error';
+import Home from '../Common/Home';
+import Landing from '../Landing/Landing';
+import Location from '../Location/Location';
+import Error from '../Common/Error';
 
 class App extends Component {
     render() {
