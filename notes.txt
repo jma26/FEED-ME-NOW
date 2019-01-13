@@ -1,0 +1,5 @@
+To-Do List:
+
+1) Migrate server.js into its own 'Server' folder with package.json dependencies
+2) Root folder will contain another package.json with specific scripts to run dev or build environment
+    - Will be main access point for dev to work with project
