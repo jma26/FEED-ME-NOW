@@ -1,15 +1,20 @@
-.location__headline--color {
+.Location__headline--color {
     color: #FFF;
     text-transform: uppercase;
     letter-spacing: 0.12rem;
 }
 
+.Location__location-input, .Location__location-btn {
+    width: 200px;
+    padding: 4px 8px;
+}
+
 /* Mobile smartphones (portrait)*/
 @media only screen and (max-width: 481px) {
-    .location__location-input {
+    .Location__location-input {
         width: 178px;
     }
-    .location__location-btn {
+    .Location__location-btn {
         margin-top: 8px;
         width: 178px;
     }
