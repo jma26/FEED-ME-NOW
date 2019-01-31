@@ -3,6 +3,7 @@ const axios = require('axios');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const dotenv = require('dotenv').config();
 
 const app = express();
 
@@ -15,15 +16,13 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-// const yelpKey = require('./yelpConfig.js')['yelpAPIKey'];
-
 // Set config defaults for axios globally
 axios.defaults.baseURL = "https://api.yelp.com/v3/";
 axios.defaults.headers.common['Authorization'] = `Bearer ${process.env.YELP_API_KEY}`;
 
 const port = process.env.PORT || 5000;
 
-app.post('/getrestaurant', (req, res, next) => {
+app.post('/restaurants', (req, res, next) => {
     let yelpParams;
     // Check if gelocation is shared
     if (req.body.hasGeolocation) {
@@ -49,7 +48,7 @@ app.post('/getrestaurant', (req, res, next) => {
         }
     })
     .catch((error) => {
-        console.log(error);
+        next(new Error('Error while retrieving restaurants from business search endpoint', error));
     })
 });
 

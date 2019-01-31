@@ -13,7 +13,6 @@ class Location extends Component {
 
     findGeoLocation() {
         console.log(`Geocoding address....`);
-        console.log(process.env.REACT_APP_MAPQUEST_API_KEY);
         const MAPQUEST_GEOCODING_API_URL = 'https://www.mapquestapi.com/geocoding/v1/address';
         axios.get(`${MAPQUEST_GEOCODING_API_URL}?key=${process.env.REACT_APP_MAPQUEST_API_KEY}&location=${this.state.userLocation}`)
         .then((response) => {

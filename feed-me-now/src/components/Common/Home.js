@@ -20,7 +20,7 @@ class Home extends Component {
 
     getRestaurant(lat, lng) {
         // http request to server
-        axios.post('/getrestaurant', {
+        axios.post('/restaurants', {
             lng: lng,
             lat: lat,
             hasGeolocation: true
@@ -46,7 +46,12 @@ class Home extends Component {
             }
         })
         .catch((error) => {
-            console.log(error);
+            if (error) {
+                this.setState({
+                    hasError: true,
+                    errorMsg: 'Error posting to /restaurants'
+                })
+            }
         }); 
     }
 
@@ -95,7 +100,7 @@ class Home extends Component {
 
     render() {
         var REDIRECT_COMPONENT, MAP_LOADING_COMPONENT;
-        if (this.state.hasError && this.state.errorMsg) {
+        if (this.state.hasError) {
             REDIRECT_COMPONENT = <Redirect to={{
                 pathname: '/error',
                 state: {error: this.state.errorMsg}
