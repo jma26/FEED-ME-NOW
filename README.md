@@ -15,4 +15,4 @@ Project is created with:
 
 ## Setup
 * Run `npm install` in root directory and /feed-me-now
-* Create a .env for environment variables - You'll need to get your own Yelp Fusion API and MapQuest API keys
+* Create a .env for environment variables - You'll need to get your own [Yelp Fusion API](https://www.yelp.com/fusion) and [MapQuest API](https://developer.mapquest.com/documentation/) keys
