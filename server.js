@@ -4,6 +4,14 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+// Only load .env files in development
+// NEVER in production
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+  console.log(process.env.YELP_API_KEY);
+  console.log(process.env.REACT_APP_MAPQUEST_API_KEY);
+}
+
 const app = express();
 
 // Server static files from React frontend
