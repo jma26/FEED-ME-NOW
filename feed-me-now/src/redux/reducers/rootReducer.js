@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import restaurantReducer from './restaurantReducer';
+import handleActionsReducer from './handleActionsReducer';
 
 export default combineReducers({
-  restaurantReducer
+  handleActionsReducer
 });

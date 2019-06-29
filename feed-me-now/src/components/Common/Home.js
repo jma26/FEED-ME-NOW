@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
+
+import { updateUserLocation } from '../../redux/actions';
 
 import Map from '../Map/Map';
 import Loading from './Loading';
@@ -9,9 +12,6 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            geolocation: props.location.state.isSharingGeolocation,
-            center: props.location.state.center,
-            userLocation: props.location.state.userLocation,
             hasError: false,
             errorMsg: ''
         }
@@ -58,10 +58,12 @@ class Home extends Component {
     displayLocationInfo(position) {
         const lng = position.coords.longitude;
         const lat = position.coords.latitude;
-        this.setState({
-            userLocation: `${lat}, ${lng}`,
-            center: [lat, lng]
+
+        this.props.updateUserLocation({
+          coordinates: `${lat}, ${lng}`,
+          center: [lat, lng]
         })
+
         console.log(`User's geolocation is ${lng}, ${lat}`);
         // call getRestaurant() to make http post request
         this.getRestaurant(lat, lng);
@@ -79,17 +81,19 @@ class Home extends Component {
     defaultLocation() {
         const defaultLng = -122.083855;
         const defaultLat = 37.386051;
-        this.setState({
-            userLocation: `${defaultLat}, ${defaultLng}`,
-            center: [defaultLat, defaultLng]
+
+        this.props.updateUserLocation({
+          coordinates: `${defaultLat}, ${defaultLng}`,
+          center: [defaultLat, defaultLng]
         })
+
         console.log(`Default geolocation is ${defaultLng}, ${defaultLat}`);
                 // call getRestaurant() to make http post request
         this.getRestaurant(defaultLat, defaultLng);
     }
 
     componentDidMount() {
-        if (navigator.geolocation && this.state.geolocation) {
+        if (navigator.geolocation && this.props.user.hasGeolocation) {
             this.getUserLocation();
         } else if (this.state.center && this.state.userLocation) {
             this.reloadNewRestaurant();
@@ -107,7 +111,6 @@ class Home extends Component {
             }} />
         } else {
             MAP_LOADING_COMPONENT = this.state.center && this.state.userLocation ? <Map
-                isSharingGeolocation={this.state.geolocation}
                 restaurant={this.state.restaurant}
                 userLocation={this.state.userLocation}
                 height={'100vh'}
@@ -126,4 +129,13 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  user: state.handleActionsReducer.user,
+  restaurant: state.handleActionsReducer.restaurant
+})
+
+const mapDispatchToProps = dispatch => ({
+  updateUserLocation: (payload) => dispatch(updateUserLocation(payload))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
