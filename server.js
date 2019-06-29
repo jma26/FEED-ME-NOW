@@ -8,8 +8,6 @@ const path = require('path');
 // NEVER in production
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
-  console.log(process.env.YELP_API_KEY);
-  console.log(process.env.REACT_APP_MAPQUEST_API_KEY);
 }
 
 const app = express();
