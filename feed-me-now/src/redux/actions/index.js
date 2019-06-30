@@ -23,9 +23,10 @@ export const getRestaurantFail = error => ({
 
 export const getRestaurantData = (coords) => {
   return (dispatch) => {
-    return axios.post('/restaurant', {
+    return axios.post('/restaurants', {
       lng: coords.lng,
       lat: coords.lat,
+      hasGeolocation: true
     })
     .then((response) => {
       if (response.data.error) {
@@ -36,9 +37,7 @@ export const getRestaurantData = (coords) => {
     })
     .catch((error) => {
       if (error) {
-        dispatch(getRestaurantFail({
-          errorMsg: 'Error posting to /restaurants'
-        }))
+        dispatch(getRestaurantFail('Error posting to /restaurants'))
       }
     })
   }

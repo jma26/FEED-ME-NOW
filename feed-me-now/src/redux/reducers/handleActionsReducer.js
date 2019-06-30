@@ -10,7 +10,9 @@ const initialState = {
     hasGeolocation: false,
     coordinates: null,
     center: null,
-  }
+  },
+  hasError: false,
+  errorMsg: null
 }
 
 export default (state = initialState, action) => {
@@ -24,6 +26,21 @@ export default (state = initialState, action) => {
           ...state.user,
           hasGeolocation: action.bool,
         }
+      }
+    case GET_RESTAURANT_SUCCESS:
+      return {
+        ...state,
+        restaurant: {
+          name: action.response.name,
+          coordinates: action.response.coordinates,
+          url: action.response.url
+        },
+      }
+    case GET_RESTAURANT_FAIL:
+      return {
+        ...state,
+        hasError: true,
+        errorMsg: action.error
       }
     case UPDATE_USER_COORDS:
       return {

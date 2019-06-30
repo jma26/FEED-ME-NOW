@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import { updateUserLocation } from '../../redux/actions';
+import { updateUserLocation, getRestaurantData } from '../../redux/actions';
 
 import Map from '../Map/Map';
 import Loading from './Loading';
@@ -66,7 +66,10 @@ class Home extends Component {
 
         console.log(`User's geolocation is ${lng}, ${lat}`);
         // call getRestaurant() to make http post request
-        this.getRestaurant(lat, lng);
+        this.props.getRestaurantData({
+          lat, 
+          lng
+        });
     }
 
     getUserLocation() {
@@ -75,7 +78,7 @@ class Home extends Component {
     }
 
     reloadNewRestaurant() {
-        this.getRestaurant(this.state.center[0], this.state.center[1]);
+        this.props.getRestaurantData(this.state.center[0], this.state.center[1]);
     }
 
     defaultLocation() {
@@ -89,7 +92,9 @@ class Home extends Component {
 
         console.log(`Default geolocation is ${defaultLng}, ${defaultLat}`);
                 // call getRestaurant() to make http post request
-        this.getRestaurant(defaultLat, defaultLng);
+        this.props.getRestaurantData({
+          defaultLat, defaultLng
+        });
     }
 
     componentDidMount() {
@@ -135,7 +140,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  updateUserLocation: (payload) => dispatch(updateUserLocation(payload))
+  updateUserLocation: (payload) => dispatch(updateUserLocation(payload)),
+  getRestaurantData: (coords) => dispatch(getRestaurantData(coords))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

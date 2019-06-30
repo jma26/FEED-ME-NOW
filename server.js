@@ -42,6 +42,7 @@ app.post('/restaurants', (req, res, next) => {
         params: {...yelpParams}
     })
     .then((response) => {
+      console.log(response);
         if (response.data.businesses.length === 0) {
             res.json({error: 'No restaurants found'});
         } else {
@@ -53,7 +54,8 @@ app.post('/restaurants', (req, res, next) => {
         }
     })
     .catch((error) => {
-        next(new Error('Error while retrieving restaurants from business search endpoint', error));
+      console.log(error);
+      next(new Error('Error while retrieving restaurants from business search endpoint', error));
     })
 });
 
