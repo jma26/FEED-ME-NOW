@@ -1,4 +1,4 @@
-import { RESTAURANT_DATA, HAS_GEOLOCATION, UPDATE_USER_COORDS } from '../actions/action_types';
+import { RESTAURANT_DATA, HAS_GEOLOCATION, UPDATE_USER_COORDS, GET_RESTAURANT_FAIL, GET_RESTAURANT_SUCCESS } from '../actions/action_types';
 
 const initialState = {
   restaurant: {
