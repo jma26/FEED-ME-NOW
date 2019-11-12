@@ -68,7 +68,7 @@ class Map extends Component {
         var destination;
         if (this.props.restaurant) {
             destination = 
-            <div className="destination animated slideInLeft">
+            <div className="destination">
                 <p className="destination__name white-bg">Go eat at <a href={this.props.restaurant.url} target="_blank" rel="noopener noreferrer" className="destination__link">{this.props.restaurant.name}</a></p>
                 <p className="destination-box__address white-bg">{this.iterateRestaurantAddress(this.props.restaurant.address)}</p>
             </div>

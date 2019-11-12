@@ -11,10 +11,10 @@ class Landing extends Component {
   render() {
     return (
       <div className="Landing">
-        <h1 className="Landing__intro animated bounceInDown"> FEED ME NOW is an awesome web app for those who can't decide where to eat. </h1> 
-        <h1 className="Landing__intro--mobile-content animated bounceInDown"> FEED ME NOW </h1>
-        <h2 className="Landing__content animated bounceInUp"> Click accept to share your location or decline to manually input it. </h2>
-        <div className="Landing__logo-container animated fadeIn">
+        <h1 className="Landing__intro"> FEED ME NOW is an awesome web app for those who can't decide where to eat. </h1> 
+        <h1 className="Landing__intro--mobile-content"> FEED ME NOW </h1>
+        <h2 className="Landing__content"> Click accept to share your location or decline to manually input it. </h2>
+        <div className="Landing__logo-container">
           <img src={`${logoPath}`} alt="Brand logo" className="Landing__logo" />
         </div>
         <div className="Landing__btns">
