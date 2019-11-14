@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../../css/Common/Error.css';
+import './Error.css';
 
 class Error extends Component {
     render() {

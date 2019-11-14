@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../css/Landing/Landing.css';
+import './Landing.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../../css/Map/Map.css';
+import './Map.css';
 
-import Footer from '../Common/Footer';
+import Footer from '../Common/Footer/Footer';
 
 class Map extends Component {
     constructor(props) {

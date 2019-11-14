@@ -6,14 +6,14 @@ import axios from 'axios';
 import { updateUserLocation, getRestaurantData } from '../../redux/actions';
 
 import Map from '../Map/Map';
-import Loading from './Loading';
+import Loading from '../Common/Loading/Loading';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             hasError: false,
-            errorMsg: ''
+            errorMsg: '',
         }
         this.displayLocationInfo = this.displayLocationInfo.bind(this);
     }
@@ -61,6 +61,11 @@ class Home extends Component {
 
         this.props.updateUserLocation({
           coordinates: `${lat}, ${lng}`,
+          center: [lat, lng]
+        })
+
+        this.setState({
+          userLocation: `${lat}, ${lng}`,
           center: [lat, lng]
         })
 
