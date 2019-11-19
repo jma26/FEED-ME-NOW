@@ -1,33 +1,21 @@
 import React, { Component } from 'react';
 import './Map.css';
+import { connect } from 'react-redux';
 
 import Footer from '../Common/Footer/Footer';
 
 class Map extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            userLocation: null
-         };
          this.loadDirections=this.loadDirections.bind(this);
          this.iterateRestaurantAddress=this.iterateRestaurantAddress.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.state.userLocation !== nextProps.userLocation) {
-            this.setState({
-                userLocation: nextProps.userLocation
-            })
-        }
-        if (nextProps.restaurant) {
-            this.loadDirections(nextProps.restaurant.coords);
-        }
-    }
-
     loadDirections(coords) {
+      console.log('Loading directions');
         let restaurantCoords = `${coords.latitude}, ${coords.longitude}`;
         window.L.mapquest.directions().route({
-            start: this.props.userLocation,
+            start: this.props.user.coordinates,
             end: restaurantCoords
         })
     }
@@ -35,10 +23,18 @@ class Map extends Component {
     iterateRestaurantAddress(address) {
         var restaurant_address = '';
         for (let i = 0; i < address.length; i++) {
-            restaurant_address += ` ${address[i]}`;
+            restaurant_address += `${address[i]} `;
         }
         console.log(restaurant_address);
         return restaurant_address;
+    }
+
+    componentDidUpdate(prevProps) {
+      if (prevProps.restaurant.coordinates !== this.props.restaurant.coordinates) {
+        console.log(prevProps.restaurant.coordinates);
+        console.log('Component updating...')
+        this.loadDirections(this.props.restaurant.coordinates);
+      }
     }
 
     componentDidMount() {
@@ -62,6 +58,7 @@ class Map extends Component {
                 draggable: false
             }
         })
+        this.loadDirections(this.props.restaurant.coordinates);
     }
 
     render() {
@@ -82,13 +79,17 @@ class Map extends Component {
                 <div id="map" style={mapStyle}></div>
                 {destination}
                 <Footer
-                    center={this.props.center}
-                    isSharingGeolocation={this.props.isSharingGeolocation}
-                    userLocation={this.props.userLocation}
+                    center={this.props.user.center}
+                    isSharingGeolocation={this.props.user.hasGeolocation}
+                    userLocation={this.props.user.coordinates}
                 />
             </div>
         )
     }
 }
 
-export default Map;
+const mapStateToProps = state => ({
+  user: state.handleActionsReducer.user
+})
+
+export default connect(mapStateToProps, null)(Map);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import store from '../../redux/store.js';
 
 import { updateUserLocation, getRestaurantData } from '../../redux/actions';
 
@@ -11,9 +12,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hasError: false,
-            errorMsg: '',
-            restaurant: null
+          restaurant: null,
         }
         this.displayLocationInfo = this.displayLocationInfo.bind(this);
     }
@@ -37,6 +36,7 @@ class Home extends Component {
     }
 
     getUserLocation() {
+      console.log('Retrieving user location...');
         // Check if API is available on user's browsers
         navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
     }
@@ -64,13 +64,16 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        if (navigator.geolocation && this.props.user.hasGeolocation) {
-            this.getUserLocation();
-        } else if (this.props.user.center && this.props.user.coordinates) {
-            this.reloadNewRestaurant();
-        } else {
-            this.defaultLocation();
-        }
+      this.setState({
+        restaurant: this.props.restaurant
+      });
+      if (navigator.geolocation && this.props.user.hasGeolocation) {
+          this.getUserLocation();
+      } else if (this.props.user.center && this.props.user.coordinates) {
+          this.reloadNewRestaurant();
+      } else {
+          this.defaultLocation();
+      }
     }
 
     render() {
@@ -81,12 +84,13 @@ class Home extends Component {
                 state: {error: this.props.error.msg}
             }} />
         } else {
-            MAP_LOADING_COMPONENT = ((this.state.restaurant !== this.props.restaurant.address) && this.props.restaurant.address) ? <Map
+            MAP_LOADING_COMPONENT = this.state.restaurant && (this.state.restaurant !== this.props.restaurant) && this.props.user.center ? <Map
                 height={'100vh'}
                 width={'100%'}
                 center={this.props.user.center}
                 baseLayer={'map'}
                 zoom={14}
+                restaurant={this.props.restaurant}
                 /> : <Loading />
         }
         return (

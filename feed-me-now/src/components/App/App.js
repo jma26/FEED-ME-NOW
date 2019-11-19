@@ -14,7 +14,7 @@ class App extends Component {
                 <Route exact path="/" component={ Landing } />
                 <Switch>
                     <Route path="/home" component={props => (
-                        <Home timestamp={new Date().toString()} {...props} />
+                        <Home {...props} />
                     )} />
                     <Route path="/location" component={ Location } />
                     <Route path="/error" component={ Error } />

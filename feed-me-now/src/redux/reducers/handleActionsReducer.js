@@ -32,6 +32,7 @@ export default (state = initialState, action) => {
         ...state,
         restaurant: {
           name: action.response.name,
+          address: action.response.location.display_address,
           coordinates: action.response.coordinates,
           url: action.response.url
         },
