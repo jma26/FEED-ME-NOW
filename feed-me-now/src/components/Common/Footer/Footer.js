@@ -18,7 +18,7 @@ class Footer extends Component {
                         <a href="https://www.linkedin.com/in/jesse-ma-b2522b84/" target="_blank" rel="noopener noreferrer" className="footer-container__social-link"><FontAwesomeIcon icon={faLinkedin} size="lg" className="footer-container__icons social-links--hyperlink" /></a>
                         <p className="footer-container__content">Jesse Ma</p>
                     </div>
-                    <Link to={{pathname: "/location", state: {isSharingGeolocation: false, userLocation: this.props.userLocation, center: this.props.center} }} style={{textDecoration: 'none'}} className="footer-container__location-btn">Change Location</Link>
+                    <Link to={{pathname: "/location" }} style={{textDecoration: 'none'}} className="footer-container__location-btn">Change Location</Link>
                 </div>
             </div>
         )

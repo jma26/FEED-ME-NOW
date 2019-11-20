@@ -42,25 +42,28 @@ class Home extends Component {
     }
 
     reloadNewRestaurant() {
-        this.props.getRestaurantData(this.props.user.center[0], this.props.user.center[1]);
+        this.props.getRestaurantData({
+          lat: this.props.user.center[0], 
+          lng: this.props.user.center[1]
+        });
     }
 
     defaultLocation() {
         const defaultLng = -122.083855;
         const defaultLat = 37.386051;
         
-        this.props.getRestaurantData({
-          defaultLat,
-          defaultLng
-        });
-
         this.props.updateUserLocation({
           coordinates: `${defaultLat}, ${defaultLng}`,
           center: [defaultLat, defaultLng]
         })
 
+        // call getRestaurant() to make http post request
+        this.props.getRestaurantData({
+          lat: defaultLat,
+          lng: defaultLng
+        });
+
         console.log(`Default geolocation is ${defaultLng}, ${defaultLat}`);
-                // call getRestaurant() to make http post request
     }
 
     componentDidMount() {
