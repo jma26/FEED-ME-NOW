@@ -29,14 +29,6 @@ class Map extends Component {
         return restaurant_address;
     }
 
-    componentDidUpdate(prevProps) {
-      if (prevProps.restaurant.coordinates !== this.props.restaurant.coordinates) {
-        console.log(prevProps.restaurant.coordinates);
-        console.log('Component updating...')
-        this.loadDirections(this.props.restaurant.coordinates);
-      }
-    }
-
     componentDidMount() {
         window.L.mapquest.key = `${process.env.REACT_APP_MAPQUEST_API_KEY}`;
         var map = window.L.mapquest.map('map', {

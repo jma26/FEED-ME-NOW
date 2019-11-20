@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './Location.css';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { updateUserLocation, getRestaurantData } from '../../redux/actions';
 
 class Location extends Component {
     constructor(props) {
         super(props);
         this.state = {
             userLocation: '',
-            hasError: false
         }
     }
 
@@ -18,15 +20,20 @@ class Location extends Component {
         .then((response) => {
             const geoCoordinates = response.data.results[0].locations[0].latLng;
             console.log(geoCoordinates);
-            this.props.history.push({
-                pathname: '/home',
-                state: {
-                    'userLocation': `${geoCoordinates.lat}, ${geoCoordinates.lng}`,
-                    'center': [geoCoordinates.lat, geoCoordinates.lng],
-                    'geolocation': false
-                }
+            // Update Restaurant
+            this.props.getRestaurantData({
+              lat: geoCoordinates.lat,
+              lng: geoCoordinates.lng
+            });
+            // Update User location 
+            this.props.updateUserLocation({
+              coordinates: `${geoCoordinates.lat}, ${geoCoordinates.lng}`,
+              center: [geoCoordinates.lat, geoCoordinates.lng]
             })
-            console.log(`${geoCoordinates.lat}, ${geoCoordinates.lng}`);
+            // Direct to /home
+            this.props.history.push({
+                pathname: '/home'
+            });
         })
         .catch((error) => {
             this.setState({
@@ -53,4 +60,9 @@ class Location extends Component {
     }
 }
 
-export default Location;
+const mapDispatchToProps = dispatch => ({
+  updateUserLocation: (payload) => dispatch(updateUserLocation(payload)),
+  getRestaurantData: (coords) => dispatch(getRestaurantData(coords))
+})
+
+export default connect(null, mapDispatchToProps)(Location);
